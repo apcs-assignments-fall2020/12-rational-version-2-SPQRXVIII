@@ -69,22 +69,25 @@ public class Rational
     // Returns whether or not the Rational is currently simplified
     // or not
     public boolean isSimplified() { 
-        return false; // YOUR CODE HERE
+        return (greatestCommonFactor(numerator, denominator)==1); // YOUR CODE HERE
     }
 
     // Calculates the double value of our Rational
     public double calculateDecimalValue() { 
-        return 0.0; // YOUR CODE HERE
+        return (double)numerator/(double)denominator; // YOUR CODE HERE
     }
 
     // Returns the Rational we get from raising  the rational number to an integer power
     public Rational pow(int exponent) {
-        return null; // YOUR CODE HERE
+        int n = (int)Math.pow((double)numerator, (double)exponent);
+        int d = (int)Math.pow((double)denominator, (double)exponent);    
+        Rational r = new Rational(n, d);    
+        return simplify(r); // YOUR CODE HERE
     }
 
     // Checks to see if either the numerator or denominator match a given number
     public boolean matches(int x) {
-        return false; // YOUR CODE HERE
+        return (numerator==x||denominator==x); // YOUR CODE HERE
     }
 
 
@@ -94,18 +97,19 @@ public class Rational
     // Methods you'll write for homework:
     // Returns whether or not the Rational is a negative number
     public boolean isNegative() { 
-        return false; // YOUR CODE HERE
+        return (((double)numerator/(double)denominator)<0); // YOUR CODE HERE
     }
 
     // Calculates the reciprocal of a Rational number.
     // The reciprocal of 3/4 is 4/3, the reciprocal of 1/2 is 2/1
     public Rational reciprocal() {
-        return null; // YOUR CODE HERE
+        Rational r = new Rational(denominator, numerator);
+        return r; // YOUR CODE HERE
     }
 
     // Checks whether the current Rational is the exactly the same as other
     public boolean equals(Rational other) {
-        return false; // YOUR CODE HERE
+        return (numerator==other.numerator&&denominator==other.denominator); // YOUR CODE HERE
     }
 
 
